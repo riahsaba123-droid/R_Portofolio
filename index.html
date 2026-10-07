@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Sabariah, S.A.B | Healthcare VA & Certified Caregiver</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #0d9488;       /* Teal Medical */
+      --primary-dark: #0f766e;
+      --primary-light: #ccfbf1;
+      --secondary: #0284c7;     /* Sky Blue */
+      --dark: #0f172a;
+      --slate: #475569;
+      --light-bg: #f8fafc;
+      --white: #ffffff;
+      --card-border: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.05);
+      --radius: 14px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--card-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.8rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--slate);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-nav {
+      background: var(--primary);
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      transition: var(--transition);
+    }
+
+    .btn-nav:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4.5rem 1.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1 1 540px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      padding: 0.35rem 0.9rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero p {
+      color: var(--slate);
+      font-size: 1.05rem;
+      margin-bottom: 1.8rem;
+      text-align: justify;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.6rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--card-border);
+      color: var(--slate);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .contact-chips {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--slate);
+    }
+
+    .contact-chips a, .contact-chips span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--slate);
+      text-decoration: none;
+    }
+
+    .contact-chips a:hover {
+      color: var(--primary);
+    }
+
+    .hero-img-box {
+      flex: 1 1 320px;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 30px rgba(13, 148, 136, 0.25);
+    }
+
+    .avatar-icon {
+      font-size: 8rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Common Sections */
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 4rem 1.5rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-header p {
+      color: var(--slate);
+      font-size: 1rem;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--white);
+      padding: 1.8rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-light);
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .skill-card p {
+      font-size: 0.95rem;
+      color: var(--slate);
+    }
+
+    /* Portfolio Highlights */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .portfolio-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .portfolio-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-4px);
+    }
+
+    .card-banner {
+      height: 140px;
+      background: linear-gradient(135deg, #0d9488, #0284c7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+    }
+
+    .portfolio-body {
+      padding: 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tag-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .portfolio-body h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .portfolio-body p {
+      color: var(--slate);
+      font-size: 0.95rem;
+      flex: 1;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Timeline Section (Experience & Education) */
+    .timeline {
+      position: relative;
+      margin: 1rem auto 0;
+      max-width: 900px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--card-border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 55px;
+      margin-bottom: 2.2rem;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 11px;
+      top: 5px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-card {
+      background: var(--white);
+      padding: 1.6rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .timeline-header h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .timeline-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      background: #f1f5f9;
+      color: var(--slate);
+      border-radius: 6px;
+    }
+
+    .timeline-sub {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-card ul {
+      padding-left: 1.2rem;
+      color: var(--slate);
+      font-size: 0.92rem;
+    }
+
+    .timeline-card ul li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Certifications Grid */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .cert-item {
+      background: var(--white);
+      padding: 1.2rem 1.4rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cert-item i {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-top: 0.2rem;
+    }
+
+    .cert-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-item span {
+      font-size: 0.85rem;
+      color: var(--slate);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #94a3b8;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero {
+        padding-top: 2rem;
+        text-align: center;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .contact-chips {
+        justify-content: center;
+      }
+      .hero p {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-notes-medical"></i> Sabariah, S.A.B
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">Tentang</a></li>
+        <li><a href="#skills">Keahlian</a></li>
+        <li><a href="#portfolio">Portofolio</a></li>
+        <li><a href="#experience">Pengalaman</a></li>
+        <li><a href="#certifications">Sertifikasi</a></li>
+        <li><a href="mailto:riahsaba123@gmail.com" class="btn-nav"><i class="fa-regular fa-envelope"></i> Hubungi</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div id="about" class="hero">
+    <div class="hero-content">
+      <div class="badge">
+        <i class="fa-solid fa-circle-check"></i> Siap Kerja (Remote / Kontrak)
+      </div>
+      <h1>SABARIAH, S.A.B</h1>
+      <div class="hero-subtitle">Healthcare Virtual Assistant & Data Support | Certified Caregiver</div>
+      <p>
+        Profesional perawat lansia dan asisten virtual kesehatan dengan pengalaman internasional lebih dari 8 tahun di Hong Kong dan Dubai. Memiliki sertifikasi lengkap (CNA, ACA, City & Guilds, TQUK, ASHI First Aid/CPR/AED) dengan kepakaran khusus dalam perawatan lansia, manajemen obat, pemantauan tanda vital, serta koordinasi layanan telehealth. Berpengalaman memadukan perawatan klinis dengan solusi digital melalui entri data EMR, otomasi alur kerja jarak jauh, serta pembuatan dashboard interaktif Excel & Power BI.
+      </p>
+
+      <div class="hero-actions">
+        <a href="mailto:riahsaba123@gmail.com" class="btn btn-primary">
+          <i class="fa-solid fa-envelope"></i> Kirim Email
+        </a>
+        <a href="http://www.linkedin.com/in/saba-riah" target="_blank" class="btn btn-outline">
+          <i class="fa-brands fa-linkedin"></i> Profil LinkedIn
+        </a>
+      </div>
+
+      <div class="contact-chips">
+        <span><i class="fa-solid fa-location-dot"></i> Hong Kong</span>
+        <a href="mailto:riahsaba123@gmail.com"><i class="fa-solid fa-at"></i> riahsaba123@gmail.com</a>
+        <span><i class="fa-solid fa-language"></i> Indonesia, English, Arabic</span>
+      </div>
+    </div>
+
+    <div class="hero-img-box">
+      <div class="avatar-wrapper">
+        <i class="fa-solid fa-user-nurse avatar-icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKILLS SECTION -->
+  <section id="skills">
+    <div class="section-header">
+      <h2>Keahlian Utama (Skills)</h2>
+      <p>Kombinasi kompetensi klinis, manajerial, dan keahlian data digital.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+        <h3>Caregiving & Elderly Support</h3>
+        <p>Pendampingan lansia secara menyeluruh, cardiac support, pemberian obat teratur, pemantauan tanda vital, dan keamanan mobilitas harian.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-headset"></i></div>
+        <h3>Telehealth & Virtual Assistant</h3>
+        <p>Koordinasi jadwal temu pasien-dokter, pengingat janji temu telehealth, komunikasi keluarga pasien, dan administrasi layanan kesehatan jarak jauh.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-chart-pie"></i></div>
+        <h3>Data Entry & Health Dashboard</h3>
+        <p>Entri data rekam medis elektronik (EMR), perancangan dashboard Power BI & Excel untuk pelacakan tanda vital, kepatuhan obat, dan KPI layanan.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-kit-medical"></i></div>
+        <h3>First Aid, CPR & AED</h3>
+        <p>Tersertifikasi resmi ASHI (Amerika Serikat) untuk tanggap darurat pertolongan pertama, CPR/RJP, dan penggunaan defibrilator eksternal otomatis (AED).</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-robot"></i></div>
+        <h3>Digital Literacy & AI Tools</h3>
+        <p>Mahir mengoperasikan Microsoft 365, Google Workspace, Zoom, perangkat kecerdasan buatan (AI), serta aktif mengajar literasi komputer di YMCA Hong Kong.</p>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon"><i class="fa-solid fa-earth-americas"></i></div>
+        <h3>Bilingual Communication</h3>
+        <p>Komunikasi aktif dalam Bahasa Indonesia dan Bahasa Inggris untuk dokumentasi medis bilingual, pelatihan modul, dan komunikasi lintas budaya.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO HIGHLIGHTS -->
+  <section id="portfolio" style="background-color: #f1f5f9; border-radius: 24px;">
+    <div class="section-header">
+      <h2>Portofolio & Karya Unggulan</h2>
+      <p>Contoh implementasi data manajemen dan alur kerja layanan kesehatan digital.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+        <div class="portfolio-body">
+          <span class="tag-category">Excel & Power BI</span>
+          <h3>Patient Vital Signs & Medication Dashboard</h3>
+          <p>Dashboard interaktif pelacakan tanda vital harian, kepatuhan konsumsi obat lansia dengan hipertensi, serta pemetaan tren kesehatan pasien.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">
+          <i class="fa-solid fa-network-wired"></i>
+        </div>
+        <div class="portfolio-body">
+          <span class="tag-category">Workflow Management</span>
+          <h3>Telehealth Coordination Workflow</h3>
+          <p>Diagram alur integrasi layanan telehealth yang menghubungkan interaksi pasien, caregiver, asisten virtual, dan dokter untuk kontinuitas perawatan yang mulus.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="card-banner" style="background: linear-gradient(135deg, #6366f1, #818cf8);">
+          <i class="fa-solid fa-book-medical"></i>
+        </div>
+        <div class="portfolio-body">
+          <span class="tag-category">Education & Module</span>
+          <h3>Bilingual Caregiving Infographics & Modules</h3>
+          <p>Modul pelatihan dan infografis kesehatan dwibahasa (Indonesia & Inggris) mengenai standar operasional kebersihan, mobilitas, dan keselamatan lansia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE & EDUCATION -->
+  <section id="experience">
+    <div class="section-header">
+      <h2>Pengalaman Kerja & Pendidikan</h2>
+      <p>Rekam jejak profesional dari layanan klinis hingga pendampingan virtual.</p>
+    </div>
+
+    <div class="timeline">
+      <!-- Live-in Caregiver -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <h3>Live-in Caregiver</h3>
+            <span class="timeline-badge">2016 - Sekarang</span>
+          </div>
+          <div class="timeline-sub">Hong Kong & Dubai</div>
+          <ul>
+            <li>Menyediakan perawatan menyeluruh bagi lansia dengan dukungan khusus perawatan jantung (cardiac support), pemberian obat, dan pencatatan tanda vital akurat.</li>
+            <li>Menyusun laporan kesehatan harian dan mengomunikasikan setiap perubahan kondisi klinis kepada dokter dan anggota keluarga.</li>
+            <li>Menerapkan rencana perawatan personal serta protokol keselamatan untuk mendukung mobilitas, kebersihan pribadi, dan kenyamanan lansia.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Virtual Care Support -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <h3>Virtual Care Support</h3>
+            <span class="timeline-badge">2025 - Sekarang</span>
+          </div>
+          <div class="timeline-sub">Freelance / Remote</div>
+          <ul>
+            <li>Mengkoordinasikan penjadwalan telehealth, konfirmasi janji temu, dan penjangkauan pasien guna meningkatkan ketepatan akses perawatan.</li>
+            <li>Melakukan entri data rekam medis elektronik (EMR) secara presisi dengan menjaga integritas data bagi tim medis.</li>
+            <li>Membangun dan mengelola dashboard Excel & Power BI guna memantau metrik perawatan jarak jauh dan KPI program layanan.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Volunteer Teacher -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <h3>Volunteer Assistant Computer Teacher</h3>
+            <span class="timeline-badge">2025 - Sekarang</span>
+          </div>
+          <div class="timeline-sub">YMCA Hong Kong</div>
+          <ul>
+            <li>Memberikan pelatihan pengoperasian Microsoft Office dan keahlian dasar komputer dengan metode pembelajaran interaktif.</li>
+            <li>Menyusun modul pelatihan bilingual untuk meningkatkan pemahaman teknologi bagi para peserta pelatihan.</li>
+            <li>Anggota Pengurus Aktif Ikatan Alumni Universitas Terbuka (IKA UT) Cabang Hong Kong (Periode 2026 - 2031).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <h3>S1 Administrasi Bisnis (Bachelor's Degree)</h3>
+            <span class="timeline-badge">2022 - 2026</span>
+          </div>
+          <div class="timeline-sub">Universitas Terbuka</div>
+          <p style="color: var(--slate); font-size: 0.95rem;">
+            Mempelajari manajemen operasional, administrasi proses bisnis, pengolahan data terstruktur, serta tata kelola organisasi.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="section-header">
+      <h2>Sertifikasi & Pelatihan Resmi</h2>
+      <p>Standarisasi internasional di bidang keperawatan, keselamatan kerja, dan analisis data.</p>
+    </div>
+
+    <div class="cert-grid">
+      <div class="cert-item">
+        <i class="fa-solid fa-award"></i>
+        <div>
+          <h4>CNA - Cardiac Nursing Caregiver</h4>
+          <span>National Caregiver Certificate, Indonesia (2026)</span>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-award"></i>
+        <div>
+          <h4>ACA Certified Caregiver</h4>
+          <span>American Caregiver Association, United States</span>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-award"></i>
+        <div>
+          <h4>City & Guilds & TQUK Level 2</h4>
+          <span>Caregiving Certification, United Kingdom</span>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-heart-pulse"></i>
+        <div>
+          <h4>ASHI First Aid, CPR & AED</h4>
+          <span>American Safety & Health Institute, USA</span>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-chart-column"></i>
+        <div>
+          <h4>BSNP Data Analyst</h4>
+          <span>DITEKINDO Indonesia (2026)</span>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-laptop-code"></i>
+        <div>
+          <h4>BSNP Microsoft Office</h4>
+          <span>PT. Esas Edukasi Indonesia (2025)</span>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-shield-halved"></i>
+        <div>
+          <h4>ISO & K3 (SMK3 PP No. 50/2012)</h4>
+          <span>ISO 9001, ISO 14001, ISO 45001, QA & QC Awareness</span>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-chalkboard-user"></i>
+        <div>
+          <h4>Certified Assistant Teacher</h4>
+          <span>YMCA of Hong Kong (2024 - 2025)</span>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <i class="fa-solid fa-truck-medical"></i>
+        <div>
+          <h4>Community Emergency Responder</h4>
+          <span>Fire Services Department Hong Kong (2025)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p style="margin-bottom: 0.5rem; font-weight: 600; color: white;">Sabariah, S.A.B &mdash; Healthcare Virtual Assistant & Caregiver</p>
+    <p style="font-size: 0.9rem;">Hong Kong | <a href="mailto:riahsaba123@gmail.com">riahsaba123@gmail.com</a> | <a href="http://www.linkedin.com/in/saba-riah" target="_blank">LinkedIn</a></p>
+  </footer>
+
+</body>
+</html>
