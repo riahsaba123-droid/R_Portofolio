@@ -2,836 +2,1203 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio - Sabariah, S.A.B | Healthcare VA & Certified Caregiver</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Sabariah, S.A.B - Certified Caregiver & Healthcare Virtual Assistant</title>
   
-  <!-- Google Fonts & Font Awesome Icons -->
+  <!-- Font Modern: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
     :root {
-      --primary: #0d9488;       /* Teal Medical */
-      --primary-dark: #0f766e;
-      --primary-light: #ccfbf1;
-      --secondary: #0284c7;     /* Sky Blue */
-      --dark: #0f172a;
-      --slate: #475569;
-      --light-bg: #f8fafc;
-      --white: #ffffff;
-      --card-border: #e2e8f0;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.05);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.05);
-      --radius: 14px;
-      --transition: all 0.3s ease;
+      --bg-base: #051316;
+      --bg-surface: #091c21;
+      --bg-card: rgba(19, 51, 59, 0.72);
+      --bg-card-hover: rgba(25, 68, 79, 0.88);
+      --teal-primary: #00f2c3;
+      --teal-secondary: #1de9b6;
+      --cyan-soft: #80ffea;
+      --border-teal: rgba(0, 242, 195, 0.2);
+      --border-teal-glow: rgba(0, 242, 195, 0.45);
+      --text-main: #f0fdfa;
+      --text-muted: #99b8be;
+      --danger: #ff5252;
+      --transition-smooth: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
     }
 
     body {
-      background-color: var(--light-bg);
-      color: var(--dark);
-      line-height: 1.6;
+      background: radial-gradient(circle at 10% 20%, #0f272e 0%, var(--bg-surface) 50%, var(--bg-base) 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
       overflow-x: hidden;
     }
 
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-base); }
+    ::-webkit-scrollbar-thumb { background: #13333b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--teal-secondary); }
+
+    /* Glassmorphism Classes */
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-teal);
+      border-radius: 18px;
+    }
+
     /* Navbar */
-    header {
+    .navbar {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
       z-index: 1000;
-      border-bottom: 1px solid var(--card-border);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .navbar {
-      max-width: 1200px;
-      margin: auto;
+      background: rgba(5, 19, 22, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-teal);
+      padding: 12px 24px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
-      padding: 1rem 1.5rem;
     }
 
-    .logo {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--primary);
-      text-decoration: none;
+    .brand-logo {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .brand-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--teal-primary), #00796b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #051316;
+      font-weight: 800;
+      font-size: 1.15rem;
+      box-shadow: 0 0 15px rgba(0, 242, 195, 0.35);
+    }
+
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-subtitle {
+      font-size: 0.72rem;
+      color: var(--teal-secondary);
+      display: block;
     }
 
     .nav-links {
       display: flex;
+      gap: 8px;
       list-style: none;
-      gap: 1.8rem;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--slate);
+    .nav-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 0.85rem;
       font-weight: 600;
-      font-size: 0.95rem;
-      transition: var(--transition);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: var(--transition-smooth);
     }
 
-    .nav-links a:hover {
-      color: var(--primary);
+    .nav-btn:hover {
+      color: var(--cyan-soft);
+      background: rgba(0, 242, 195, 0.08);
     }
 
-    .btn-nav {
-      background: var(--primary);
-      color: var(--white) !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 50px;
-      transition: var(--transition);
+    .nav-btn.active {
+      color: #051316;
+      background: var(--teal-primary);
+      box-shadow: 0 2px 12px rgba(0, 242, 195, 0.3);
     }
 
-    .btn-nav:hover {
-      background: var(--primary-dark);
-      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border-teal);
+      border-radius: 10px;
+      color: var(--teal-primary);
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 20px;
+      width: 100%;
+      flex: 1;
+    }
+
+    /* View Sections */
+    .spa-view {
+      display: none;
+      animation: fadeIn 0.35s ease forwards;
+    }
+
+    .spa-view.active-view {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Hero Section */
-    .hero {
-      max-width: 1200px;
-      margin: auto;
-      padding: 4.5rem 1.5rem 3rem;
-      display: flex;
+    .hero-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 36px;
       align-items: center;
-      justify-content: space-between;
-      gap: 2.5rem;
+      padding: 40px;
+      margin-bottom: 28px;
+    }
+
+    .hero-photo-box {
+      position: relative;
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid var(--border-teal-glow);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 242, 195, 0.2);
+    }
+
+    .hero-photo-box img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(5, 19, 22, 0.88);
+      border: 1px solid var(--border-teal);
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      text-align: center;
+      color: var(--cyan-soft);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-headline {
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 14px;
+      background: linear-gradient(90deg, #ffffff 40%, var(--teal-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-bio {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .skill-badges-container {
+      display: flex;
       flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
     }
 
-    .hero-content {
-      flex: 1 1 540px;
-    }
-
-    .badge {
+    .badge-pill {
+      background: rgba(0, 242, 195, 0.08);
+      border: 1px solid rgba(0, 242, 195, 0.22);
+      color: var(--cyan-soft);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      padding: 0.35rem 0.9rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero h1 {
-      font-size: 2.75rem;
-      font-weight: 800;
-      line-height: 1.2;
-      color: var(--dark);
-      margin-bottom: 0.8rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero p {
-      color: var(--slate);
-      font-size: 1.05rem;
-      margin-bottom: 1.8rem;
-      text-align: justify;
+      gap: 6px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 1rem;
+      gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 2rem;
     }
 
-    .btn {
-      padding: 0.75rem 1.6rem;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: 600;
+    .btn-main {
+      background: var(--teal-primary);
+      color: #051316;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      transition: var(--transition);
-      cursor: pointer;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      text-decoration: none;
     }
 
-    .btn-primary {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
+    .btn-main:hover {
+      background: var(--teal-secondary);
+      box-shadow: 0 0 20px rgba(0, 242, 195, 0.4);
       transform: translateY(-2px);
     }
 
     .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--card-border);
-      color: var(--slate);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    .contact-chips {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      font-size: 0.9rem;
-      color: var(--slate);
-    }
-
-    .contact-chips a, .contact-chips span {
+      background: rgba(19, 51, 59, 0.4);
+      color: var(--cyan-soft);
+      border: 1px solid var(--border-teal);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      color: var(--slate);
+      gap: 8px;
+      transition: var(--transition-smooth);
       text-decoration: none;
     }
 
-    .contact-chips a:hover {
-      color: var(--primary);
+    .btn-outline:hover {
+      background: rgba(0, 242, 195, 0.12);
+      border-color: var(--teal-primary);
+      transform: translateY(-2px);
     }
 
-    .hero-img-box {
-      flex: 1 1 320px;
-      display: flex;
-      justify-content: center;
-      position: relative;
-    }
-
-    .avatar-wrapper {
-      position: relative;
-      width: 320px;
-      height: 320px;
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 20px 30px rgba(13, 148, 136, 0.25);
-    }
-
-    .avatar-icon {
-      font-size: 8rem;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    /* Common Sections */
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 4rem 1.5rem;
-    }
-
+    /* Page Header */
     .section-header {
-      text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 24px;
     }
 
-    .section-header h2 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-header p {
-      color: var(--slate);
-      font-size: 1rem;
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .skill-card {
-      background: var(--white);
-      padding: 1.8rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-
-    .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary-light);
-    }
-
-    .skill-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 12px;
-      background: var(--primary-light);
-      color: var(--primary);
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #ffffff;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 1.2rem;
+      gap: 12px;
     }
 
-    .skill-card h3 {
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.6rem;
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 6px;
     }
 
-    .skill-card p {
-      font-size: 0.95rem;
-      color: var(--slate);
-    }
-
-    /* Portfolio Highlights */
-    .portfolio-grid {
+    /* Grid Kartu */
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 22px;
     }
 
     .portfolio-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      border: 1px solid var(--card-border);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
+      padding: 22px;
+      transition: var(--transition-smooth);
       display: flex;
       flex-direction: column;
-      transition: var(--transition);
+      justify-content: space-between;
+      height: 100%;
     }
 
     .portfolio-card:hover {
-      box-shadow: var(--shadow-lg);
       transform: translateY(-4px);
+      background: var(--bg-card-hover);
+      border-color: var(--border-teal-glow);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
 
-    .card-banner {
-      height: 140px;
-      background: linear-gradient(135deg, #0d9488, #0284c7);
+    .card-meta {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
+      margin-bottom: 12px;
     }
 
-    .portfolio-body {
-      padding: 1.8rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .tag-category {
-      font-size: 0.75rem;
+    .card-subcat {
+      background: rgba(0, 242, 195, 0.12);
+      color: var(--teal-primary);
+      font-size: 0.72rem;
       font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--primary);
-      margin-bottom: 0.4rem;
+      letter-spacing: 0.5px;
     }
 
-    .portfolio-body h3 {
-      font-size: 1.25rem;
+    .card-year {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 1.15rem;
       font-weight: 700;
-      margin-bottom: 0.75rem;
+      color: #ffffff;
+      margin-bottom: 8px;
+      line-height: 1.35;
     }
 
-    .portfolio-body p {
-      color: var(--slate);
-      font-size: 0.95rem;
+    .card-publisher {
+      font-size: 0.82rem;
+      color: var(--teal-secondary);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
       flex: 1;
-      margin-bottom: 1.2rem;
     }
 
-    /* Timeline Section (Experience & Education) */
-    .timeline {
+    .card-thumb-wrap {
+      width: 100%;
+      height: 170px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 1px solid rgba(0, 242, 195, 0.15);
+      background: #06181c;
+    }
+
+    .card-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-action-bar {
+      margin-top: auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-card-view {
+      flex: 1;
+      text-align: center;
+      padding: 9px;
+      background: rgba(0, 242, 195, 0.1);
+      border: 1px solid var(--border-teal);
+      border-radius: 8px;
+      color: var(--cyan-soft);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-card-view:hover {
+      background: var(--teal-primary);
+      color: #051316;
+    }
+
+    /* Timeline Khusus Experience */
+    .timeline-container {
       position: relative;
-      margin: 1rem auto 0;
-      max-width: 900px;
+      padding-left: 32px;
+      margin-top: 14px;
     }
 
-    .timeline::before {
+    .timeline-container::before {
       content: '';
       position: absolute;
-      left: 20px;
+      left: 10px;
       top: 0;
       bottom: 0;
-      width: 3px;
-      background: var(--card-border);
+      width: 2px;
+      background: linear-gradient(180deg, var(--teal-primary), rgba(0, 242, 195, 0.1));
     }
 
     .timeline-item {
       position: relative;
-      padding-left: 55px;
-      margin-bottom: 2.2rem;
+      margin-bottom: 30px;
     }
 
     .timeline-dot {
       position: absolute;
-      left: 11px;
-      top: 5px;
-      width: 20px;
-      height: 20px;
+      left: -32px;
+      top: 6px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      background: var(--primary);
-      border: 4px solid var(--white);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .timeline-card {
-      background: var(--white);
-      padding: 1.6rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--card-border);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .timeline-header {
+      background: var(--bg-surface);
+      border: 2px solid var(--teal-primary);
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 0.5rem;
-      flex-wrap: wrap;
-      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 10px rgba(0, 242, 195, 0.4);
     }
 
-    .timeline-header h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--dark);
+    .timeline-dot::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--teal-primary);
+      border-radius: 50%;
     }
 
-    .timeline-badge {
-      font-size: 0.8rem;
-      font-weight: 700;
-      padding: 0.2rem 0.6rem;
-      background: #f1f5f9;
-      color: var(--slate);
-      border-radius: 6px;
-    }
-
-    .timeline-sub {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 0.8rem;
-    }
-
-    .timeline-card ul {
-      padding-left: 1.2rem;
-      color: var(--slate);
-      font-size: 0.92rem;
-    }
-
-    .timeline-card ul li {
-      margin-bottom: 0.4rem;
-    }
-
-    /* Certifications Grid */
-    .cert-grid {
+    /* Contact Form Layout */
+    .contact-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 30px;
     }
 
-    .cert-item {
-      background: var(--white);
-      padding: 1.2rem 1.4rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--card-border);
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--cyan-soft);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 14px;
+      background: rgba(5, 19, 22, 0.7);
+      border: 1px solid var(--border-teal);
+      border-radius: 10px;
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .form-control:focus {
+      border-color: var(--teal-primary);
+      box-shadow: 0 0 12px rgba(0, 242, 195, 0.3);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .contact-info-list {
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      box-shadow: var(--shadow-sm);
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 20px;
     }
 
-    .cert-item i {
-      font-size: 1.4rem;
-      color: var(--primary);
-      margin-top: 0.2rem;
-    }
-
-    .cert-item h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 0.2rem;
-    }
-
-    .cert-item span {
-      font-size: 0.85rem;
-      color: var(--slate);
-    }
-
-    /* Footer */
-    footer {
-      background: var(--dark);
-      color: #94a3b8;
-      padding: 3rem 1.5rem;
-      text-align: center;
-      margin-top: 4rem;
-    }
-
-    footer a {
-      color: var(--primary-light);
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px;
+      background: rgba(5, 19, 22, 0.5);
+      border: 1px solid var(--border-teal);
+      border-radius: 12px;
       text-decoration: none;
+      color: var(--text-main);
+      transition: var(--transition-smooth);
+    }
+
+    .contact-info-item:hover {
+      background: rgba(0, 242, 195, 0.08);
+      border-color: var(--teal-primary);
+    }
+
+    .contact-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(0, 242, 195, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--teal-primary);
+    }
+
+    /* Modal Styling */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(3, 11, 13, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      max-width: 450px;
+      width: 100%;
+      padding: 28px;
+      position: relative;
+      text-align: center;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+
+    .modal-close:hover { color: #fff; }
+
+    /* Toast Notification (Optimistic UI) */
+    .toast-box {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #062b25;
+      border: 1px solid var(--teal-primary);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      gap: 12px;
+      animation: slideInRight 0.3s ease;
+    }
+
+    @keyframes slideInRight {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Mobile Nav Drawer */
+    .mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 66px;
+      left: 0; right: 0;
+      background: rgba(5, 19, 22, 0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-teal);
+      padding: 16px 20px;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .mobile-drawer.open {
+      display: flex;
+    }
+
+    /* Skeleton Loading Placeholder */
+    .skeleton-card {
+      height: 280px;
+      background: linear-gradient(90deg, #091c21 25%, #13333b 50%, #091c21 75%);
+      background-size: 200% 100%;
+      animation: skeletonPulse 1.5s infinite;
+      border-radius: 18px;
+    }
+
+    @keyframes skeletonPulse {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .hero {
-        padding-top: 2rem;
+    @media (max-width: 900px) {
+      .hero-wrapper {
+        grid-template-columns: 1fr;
+        padding: 24px;
         text-align: center;
       }
-      .hero-actions {
-        justify-content: center;
-      }
-      .contact-chips {
-        justify-content: center;
-      }
-      .hero p {
-        text-align: left;
-      }
+      .hero-headline { font-size: 1.8rem; }
+      .hero-actions, .skill-badges-container { justify-content: center; }
+      .contact-layout { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <header>
-    <nav class="navbar">
-      <a href="#" class="logo">
-        <i class="fa-solid fa-notes-medical"></i> Sabariah, S.A.B
-      </a>
-      <ul class="nav-links">
-        <li><a href="#about">Tentang</a></li>
-        <li><a href="#skills">Keahlian</a></li>
-        <li><a href="#portfolio">Portofolio</a></li>
-        <li><a href="#experience">Pengalaman</a></li>
-        <li><a href="#certifications">Sertifikasi</a></li>
-        <li><a href="mailto:riahsaba123@gmail.com" class="btn-nav"><i class="fa-regular fa-envelope"></i> Hubungi</a></li>
-      </ul>
-    </nav>
+  <!-- Top Sticky Navigation -->
+  <header class="navbar">
+    <a href="javascript:void(0)" class="brand-logo" onclick="switchView('home')">
+      <div class="brand-badge">S</div>
+      <div>
+        <span class="brand-title">Sabariah, S.A.B</span>
+        <span class="brand-subtitle">Caregiver & Virtual Assistant</span>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><button class="nav-btn active" onclick="switchView('home')">Beranda</button></li>
+      <li><button class="nav-btn" onclick="switchView('certifications')">Sertifikasi</button></li>
+      <li><button class="nav-btn" onclick="switchView('experience')">Pengalaman</button></li>
+      <li><button class="nav-btn" onclick="switchView('trainer')">Dokumentasi IT</button></li>
+      <li><button class="nav-btn" onclick="switchView('leadership')">Kepemimpinan</button></li>
+      <li><button class="nav-btn" onclick="switchView('education')">Pendidikan</button></li>
+      <li><button class="nav-btn" onclick="switchView('projects')">Karya & Riset</button></li>
+      <li><button class="nav-btn" onclick="switchView('contact')">Kontak</button></li>
+    </ul>
+
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
   </header>
 
-  <!-- HERO SECTION -->
-  <div id="about" class="hero">
-    <div class="hero-content">
-      <div class="badge">
-        <i class="fa-solid fa-circle-check"></i> Siap Kerja (Remote / Kontrak)
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="nav-btn" onclick="switchView('home')">Beranda</button>
+    <button class="nav-btn" onclick="switchView('certifications')">Sertifikasi Perawatan</button>
+    <button class="nav-btn" onclick="switchView('experience')">Jejak Pengalaman</button>
+    <button class="nav-btn" onclick="switchView('trainer')">Dokumentasi Trainer & IT</button>
+    <button class="nav-btn" onclick="switchView('leadership')">Kepemimpinan & Organisasi</button>
+    <button class="nav-btn" onclick="switchView('education')">Pendidikan Formal</button>
+    <button class="nav-btn" onclick="switchView('projects')">Karya & Riset Sinta</button>
+    <button class="nav-btn" onclick="switchView('contact')">Kontak & Reservasi</button>
+  </div>
+
+  <!-- Main Container -->
+  <main class="container">
+
+    <!-- 1. VIEW: HOME -->
+    <section id="view-home" class="spa-view active-view">
+      <div class="glass-panel hero-wrapper">
+        <div class="hero-photo-box">
+          <!-- Foto Profil Sabariah, S.A.B -->
+          <img src="https://drive.google.com/thumbnail?sz=w1000&id=1sjs-drtJemgk6r7_YG9u-TyUx6nY9e1Q" alt="Sabariah, S.A.B" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1594824813587-4d9f67a26888?w=800&auto=format&fit=crop&q=80';">
+          <div class="hero-badge-float">Live-in Caregiver & Data Support Specialist</div>
+        </div>
+
+        <div>
+          <h1 class="hero-headline">Sabariah, S.A.B</h1>
+          <p class="hero-bio">
+            Profesional berpengalaman dengan pendekatan ganda: <strong>Sentuhan Humanis Perawatan Medis Lansia</strong> (Certified CNA HK, City & Guilds UK, ACA & ASHI US) berpadu harmonis dengan <strong>Dukungan Virtual & Tata Kelola Data Modern</strong> (S1 Administrasi Bisnis UT berijazah Apostille, BNSP Data Analyst, dan BNSP Microsoft Office). Siap mengelola pendampingan pasien langsung maupun koordinasi telehealth jarak jauh secara akurat.
+          </p>
+
+          <div class="skill-badges-container">
+            <span class="badge-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+              Healthcare & Patient Care
+            </span>
+            <span class="badge-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+              BNSP Data Analysis
+            </span>
+            <span class="badge-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/></svg>
+              BNSP Microsoft Office
+            </span>
+            <span class="badge-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              Organisasi IKAUT HK
+            </span>
+            <span class="badge-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M6 6h10"/><path d="M6 10h10"/></svg>
+              Peneliti Sinta 4
+            </span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="javascript:void(0)" class="btn-main" onclick="openCvModal()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              Lihat & Download CV
+            </a>
+            <button class="btn-outline" onclick="switchView('contact')">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Hubungi Saya
+            </button>
+          </div>
+        </div>
       </div>
-      <h1>SABARIAH, S.A.B</h1>
-      <div class="hero-subtitle">Healthcare Virtual Assistant & Data Support | Certified Caregiver</div>
-      <p>
-        Profesional perawat lansia dan asisten virtual kesehatan dengan pengalaman internasional lebih dari 8 tahun di Hong Kong dan Dubai. Memiliki sertifikasi lengkap (CNA, ACA, City & Guilds, TQUK, ASHI First Aid/CPR/AED) dengan kepakaran khusus dalam perawatan lansia, manajemen obat, pemantauan tanda vital, serta koordinasi layanan telehealth. Berpengalaman memadukan perawatan klinis dengan solusi digital melalui entri data EMR, otomasi alur kerja jarak jauh, serta pembuatan dashboard interaktif Excel & Power BI.
+    </section>
+
+    <!-- 2. VIEW: CERTIFICATIONS -->
+    <section id="view-certifications" class="spa-view">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal-primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Sertifikasi Caregiving Internasional
+        </h2>
+        <p class="section-desc">Kualifikasi resmi standar medis & perawatan darurat dari Hong Kong, Inggris Raya, dan Amerika Serikat.</p>
+      </div>
+      <div id="grid-certifications" class="card-grid"></div>
+    </section>
+
+    <!-- 3. VIEW: EXPERIENCE -->
+    <section id="view-experience" class="spa-view">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal-primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Jejak Karier & Dedikasi (Sejak 2016)
+        </h2>
+        <p class="section-desc">Pengalaman tinggal bersama pasien (Live-in Caregiver), asisten virtual klinis, dan pengabdian edukasi digital.</p>
+      </div>
+      <div class="timeline-container" id="timeline-experience"></div>
+    </section>
+
+    <!-- 4. VIEW: TRAINER DOCUMENTATION -->
+    <section id="view-trainer" class="spa-view">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal-primary)" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+          Dokumentasi Trainer, IT & BNSP
+        </h2>
+        <p class="section-desc">Portofolio keahlian komputasi, sertifikasi BNSP analisis data, manajemen mutu ISO 9001, dan pelatihan komputer.</p>
+      </div>
+      <div id="grid-trainer" class="card-grid"></div>
+    </section>
+
+    <!-- 5. VIEW: LEADERSHIP -->
+    <section id="view-leadership" class="spa-view">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal-primary)" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg>
+          Kepemimpinan & Kontribusi Sosial
+        </h2>
+        <p class="section-desc">Amanah sebagai Ketua Bidang IKAUT Hong Kong dan penggerak literasi teknologi bagi komunitas migran.</p>
+      </div>
+      <div id="grid-leadership" class="card-grid"></div>
+    </section>
+
+    <!-- 6. VIEW: EDUCATION -->
+    <section id="view-education" class="spa-view">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal-primary)" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          Pendidikan Formal & Legalisasi Apostille
+        </h2>
+        <p class="section-desc">Ijazah Sarjana Administrasi Bisnis terakreditasi dengan legalitas internasional Apostille resmi.</p>
+      </div>
+      <div id="grid-education" class="card-grid"></div>
+    </section>
+
+    <!-- 7. VIEW: PROJECTS & PUBLICATIONS -->
+    <section id="view-projects" class="spa-view">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal-primary)" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Karya Teknologi Kesehatan & Publikasi Sinta 4
+        </h2>
+        <p class="section-desc">Alat pencatatan asuhan keperawatan, dashboard analitik data kesehatan, web portal, dan artikel jurnal terakreditasi.</p>
+      </div>
+      <div id="grid-projects" class="card-grid"></div>
+    </section>
+
+    <!-- 8. VIEW: CONTACT -->
+    <section id="view-contact" class="spa-view">
+      <div class="section-header">
+        <h2 class="section-title">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal-primary)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Hubungi & Konsultasi Langsung
+        </h2>
+        <p class="section-desc">Kirim pesan langsung untuk kebutuhan Caregiver, Healthcare Virtual Assistant, IT Trainer, atau Kolaborasi Riset.</p>
+      </div>
+
+      <div class="contact-layout">
+        <!-- Direct Contact Cards -->
+        <div class="glass-panel" style="padding: 24px;">
+          <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 12px;">Kontak Cepat</h3>
+          <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+            Siap bekerja secara fleksibel (Live-in on-site Hong Kong maupun Virtual Remote). Silakan hubungi via channel berikut:
+          </p>
+
+          <div class="contact-info-list">
+            <a href="mailto:riahsaba123@gmail.com" class="contact-info-item">
+              <div class="contact-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div>
+                <span style="font-size: 0.72rem; color: var(--teal-secondary); display:block;">Email Resmi</span>
+                <span style="font-size: 0.86rem; font-weight: 600;">riahsaba123@gmail.com</span>
+              </div>
+            </a>
+
+            <a href="https://wa.me/6285202088185" target="_blank" rel="noopener noreferrer" class="contact-info-item">
+              <div class="contact-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div>
+                <span style="font-size: 0.72rem; color: var(--teal-secondary); display:block;">WhatsApp Fast Response</span>
+                <span style="font-size: 0.86rem; font-weight: 600;">+62 852-0208-8185</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/saba-riah" target="_blank" rel="noopener noreferrer" class="contact-info-item">
+              <div class="contact-icon-box">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </div>
+              <div>
+                <span style="font-size: 0.72rem; color: var(--teal-secondary); display:block;">LinkedIn Profile</span>
+                <span style="font-size: 0.86rem; font-weight: 600;">linkedin.com/in/saba-riah</span>
+              </div>
+            </a>
+
+            <button type="button" class="btn-outline" style="width: 100%; justify-content: center; margin-top: 10px;" onclick="openQrModal()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/></svg>
+              Tampilkan QR Code WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <!-- Form Terintegrasi Google Sheets -->
+        <div class="glass-panel" style="padding: 24px;">
+          <form id="contactForm" onsubmit="handleContactSubmit(event)">
+            <div class="form-group">
+              <label class="form-label">Nama Lengkap *</label>
+              <input type="text" id="formNama" class="form-control" placeholder="Contoh: Dr. Michael Tan / Keluarga Pasien" required>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="form-group">
+                <label class="form-label">Alamat Email *</label>
+                <input type="email" id="formEmail" class="form-control" placeholder="email@anda.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Nomor WhatsApp *</label>
+                <input type="tel" id="formWa" class="form-control" placeholder="Contoh: 08123456789 / +852..." required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kategori Keperluan *</label>
+              <select id="formKategori" class="form-control" required>
+                <option value="Healthcare">Layanan Caregiver / Perawatan Pasien</option>
+                <option value="Virtual Support">Healthcare Virtual Assistant (Remote)</option>
+                <option value="IT Training">Pelatihan Komputer & Literasi Data</option>
+                <option value="Riset/Kolaborasi">Riset & Publikasi Ilmiah</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Isi Pesan / Kebutuhan *</label>
+              <textarea id="formPesan" class="form-control" placeholder="Tuliskan rincian kebutuhan Anda secara singkat..." required></textarea>
+            </div>
+
+            <button type="submit" id="btnSubmitContact" class="btn-main" style="width: 100%; justify-content: center; padding: 14px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Kirim Pesan Sekarang
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal: Download CV -->
+  <div class="modal-overlay" id="cvModal">
+    <div class="glass-panel modal-box">
+      <button class="modal-close" onclick="closeCvModal()">&times;</button>
+      <h3 style="font-size: 1.25rem; margin-bottom: 8px; color: #fff;">Curriculum Vitae</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 20px;">
+        Pilih format Curriculum Vitae resmi Sabariah, S.A.B yang Anda perlukan:
       </p>
-
-      <div class="hero-actions">
-        <a href="mailto:riahsaba123@gmail.com" class="btn btn-primary">
-          <i class="fa-solid fa-envelope"></i> Kirim Email
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <a href="https://drive.google.com/file/d/1sjs-drtJemgk6r7_YG9u-TyUx6nY9e1Q/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-main" style="justify-content: center;">
+          Caregiving & Healthcare CV (PDF)
         </a>
-        <a href="http://www.linkedin.com/in/saba-riah" target="_blank" class="btn btn-outline">
-          <i class="fa-brands fa-linkedin"></i> Profil LinkedIn
+        <a href="https://drive.google.com/file/d/1ZbEUqKULJR-AaR39N9IZoBm2DVrmZhXJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline" style="justify-content: center;">
+          IT Trainer & Data Specialist CV (PDF)
         </a>
-      </div>
-
-      <div class="contact-chips">
-        <span><i class="fa-solid fa-location-dot"></i> Hong Kong</span>
-        <a href="mailto:riahsaba123@gmail.com"><i class="fa-solid fa-at"></i> riahsaba123@gmail.com</a>
-        <span><i class="fa-solid fa-language"></i> Indonesia, English, Arabic</span>
-      </div>
-    </div>
-
-    <div class="hero-img-box">
-      <div class="avatar-wrapper">
-        <i class="fa-solid fa-user-nurse avatar-icon"></i>
       </div>
     </div>
   </div>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills">
-    <div class="section-header">
-      <h2>Keahlian Utama (Skills)</h2>
-      <p>Kombinasi kompetensi klinis, manajerial, dan keahlian data digital.</p>
+  <!-- Modal: QR Code WhatsApp -->
+  <div class="modal-overlay" id="qrModal">
+    <div class="glass-panel modal-box">
+      <button class="modal-close" onclick="closeQrModal()">&times;</button>
+      <h3 style="font-size: 1.25rem; margin-bottom: 6px; color: #fff;">Scan QR WhatsApp</h3>
+      <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 18px;">
+        Pindai kode QR berikut untuk terhubung langsung ke WhatsApp Sabariah:
+      </p>
+      <div style="background: #ffffff; padding: 16px; border-radius: 14px; display: inline-block; margin-bottom: 14px;">
+        <!-- QR Code Generated via QuickChart API bebas lisensi -->
+        <img src="https://quickchart.io/qr?text=https%3A%2F%2Fwa.me%2F6285202088185&size=200" alt="QR Code WhatsApp" style="width: 180px; height: 180px; display: block;">
+      </div>
+      <p style="font-size: 0.8rem; color: var(--cyan-soft); font-weight: 600;">+62 852-0208-8185</p>
     </div>
+  </div>
 
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-solid fa-heart-pulse"></i></div>
-        <h3>Caregiving & Elderly Support</h3>
-        <p>Pendampingan lansia secara menyeluruh, cardiac support, pemberian obat teratur, pemantauan tanda vital, dan keamanan mobilitas harian.</p>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-solid fa-headset"></i></div>
-        <h3>Telehealth & Virtual Assistant</h3>
-        <p>Koordinasi jadwal temu pasien-dokter, pengingat janji temu telehealth, komunikasi keluarga pasien, dan administrasi layanan kesehatan jarak jauh.</p>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-solid fa-chart-pie"></i></div>
-        <h3>Data Entry & Health Dashboard</h3>
-        <p>Entri data rekam medis elektronik (EMR), perancangan dashboard Power BI & Excel untuk pelacakan tanda vital, kepatuhan obat, dan KPI layanan.</p>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-solid fa-kit-medical"></i></div>
-        <h3>First Aid, CPR & AED</h3>
-        <p>Tersertifikasi resmi ASHI (Amerika Serikat) untuk tanggap darurat pertolongan pertama, CPR/RJP, dan penggunaan defibrilator eksternal otomatis (AED).</p>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-solid fa-robot"></i></div>
-        <h3>Digital Literacy & AI Tools</h3>
-        <p>Mahir mengoperasikan Microsoft 365, Google Workspace, Zoom, perangkat kecerdasan buatan (AI), serta aktif mengajar literasi komputer di YMCA Hong Kong.</p>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon"><i class="fa-solid fa-earth-americas"></i></div>
-        <h3>Bilingual Communication</h3>
-        <p>Komunikasi aktif dalam Bahasa Indonesia dan Bahasa Inggris untuk dokumentasi medis bilingual, pelatihan modul, dan komunikasi lintas budaya.</p>
-      </div>
+  <!-- Optimistic Notification Toast -->
+  <div class="toast-box" id="toastBox">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--teal-primary)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+    <div>
+      <strong style="display:block; font-size: 0.86rem; color: var(--cyan-soft);">Pesan Berhasil Terkirim!</strong>
+      <span style="font-size: 0.76rem; color: var(--text-muted);" id="toastDesc">Data Anda telah dicatat ke sistem kami.</span>
     </div>
-  </section>
+  </div>
 
-  <!-- PORTFOLIO HIGHLIGHTS -->
-  <section id="portfolio" style="background-color: #f1f5f9; border-radius: 24px;">
-    <div class="section-header">
-      <h2>Portofolio & Karya Unggulan</h2>
-      <p>Contoh implementasi data manajemen dan alur kerja layanan kesehatan digital.</p>
-    </div>
+  <!-- Client-Side Script: SPA Switcher, Anti-Lag, Optimistic UI & DOM Concatenation -->
+  <script>
+    // State lokal per kategori untuk Server-Side Pagination
+    var portfolioCache = {};
 
-    <div class="portfolio-grid">
-      <div class="portfolio-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">
-          <i class="fa-solid fa-chart-line"></i>
-        </div>
-        <div class="portfolio-body">
-          <span class="tag-category">Excel & Power BI</span>
-          <h3>Patient Vital Signs & Medication Dashboard</h3>
-          <p>Dashboard interaktif pelacakan tanda vital harian, kepatuhan konsumsi obat lansia dengan hipertensi, serta pemetaan tren kesehatan pasien.</p>
-        </div>
-      </div>
+    function toggleMobileMenu() {
+      var drawer = document.getElementById("mobileDrawer");
+      drawer.classList.toggle("open");
+    }
 
-      <div class="portfolio-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">
-          <i class="fa-solid fa-network-wired"></i>
-        </div>
-        <div class="portfolio-body">
-          <span class="tag-category">Workflow Management</span>
-          <h3>Telehealth Coordination Workflow</h3>
-          <p>Diagram alur integrasi layanan telehealth yang menghubungkan interaksi pasien, caregiver, asisten virtual, dan dokter untuk kontinuitas perawatan yang mulus.</p>
-        </div>
-      </div>
+    // SPA View Switcher
+    function switchView(viewName) {
+      // Tutup drawer di mobile jika terbuka
+      var drawer = document.getElementById("mobileDrawer");
+      if (drawer) drawer.classList.remove("open");
 
-      <div class="portfolio-card">
-        <div class="card-banner" style="background: linear-gradient(135deg, #6366f1, #818cf8);">
-          <i class="fa-solid fa-book-medical"></i>
-        </div>
-        <div class="portfolio-body">
-          <span class="tag-category">Education & Module</span>
-          <h3>Bilingual Caregiving Infographics & Modules</h3>
-          <p>Modul pelatihan dan infografis kesehatan dwibahasa (Indonesia & Inggris) mengenai standar operasional kebersihan, mobilitas, dan keselamatan lansia.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      // Set class active pada tombol navigasi
+      var buttons = document.querySelectorAll(".nav-btn");
+      for (var i = 0; i < buttons.length; i++) {
+        var btn = buttons[i];
+        if (btn.getAttribute("onclick") && btn.getAttribute("onclick").indexOf("'" + viewName + "'") !== -1) {
+          btn.classList.add("active");
+        } else {
+          btn.classList.remove("active");
+        }
+      }
 
-  <!-- EXPERIENCE & EDUCATION -->
-  <section id="experience">
-    <div class="section-header">
-      <h2>Pengalaman Kerja & Pendidikan</h2>
-      <p>Rekam jejak profesional dari layanan klinis hingga pendampingan virtual.</p>
-    </div>
+      // Hide all views
+      var views = document.querySelectorAll(".spa-view");
+      for (var j = 0; j < views.length; j++) {
+        views[j].classList.remove("active-view");
+      }
 
-    <div class="timeline">
-      <!-- Live-in Caregiver -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-header">
-            <h3>Live-in Caregiver</h3>
-            <span class="timeline-badge">2016 - Sekarang</span>
-          </div>
-          <div class="timeline-sub">Hong Kong & Dubai</div>
-          <ul>
-            <li>Menyediakan perawatan menyeluruh bagi lansia dengan dukungan khusus perawatan jantung (cardiac support), pemberian obat, dan pencatatan tanda vital akurat.</li>
-            <li>Menyusun laporan kesehatan harian dan mengomunikasikan setiap perubahan kondisi klinis kepada dokter dan anggota keluarga.</li>
-            <li>Menerapkan rencana perawatan personal serta protokol keselamatan untuk mendukung mobilitas, kebersihan pribadi, dan kenyamanan lansia.</li>
-          </ul>
-        </div>
-      </div>
+      // Show target view
+      var target = document.getElementById("view-" + viewName);
+      if (target) {
+        target.classList.add("active-view");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
 
-      <!-- Virtual Care Support -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-header">
-            <h3>Virtual Care Support</h3>
-            <span class="timeline-badge">2025 - Sekarang</span>
-          </div>
-          <div class="timeline-sub">Freelance / Remote</div>
-          <ul>
-            <li>Mengkoordinasikan penjadwalan telehealth, konfirmasi janji temu, dan penjangkauan pasien guna meningkatkan ketepatan akses perawatan.</li>
-            <li>Melakukan entri data rekam medis elektronik (EMR) secara presisi dengan menjaga integritas data bagi tim medis.</li>
-            <li>Membangun dan mengelola dashboard Excel & Power BI guna memantau metrik perawatan jarak jauh dan KPI program layanan.</li>
-          </ul>
-        </div>
-      </div>
+      // Lazy load data jika view berdata dibuka
+      if (viewName !== "home" && viewName !== "contact") {
+        loadCategoryData(viewName);
+      }
+    }
 
-      <!-- Volunteer Teacher -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-header">
-            <h3>Volunteer Assistant Computer Teacher</h3>
-            <span class="timeline-badge">2025 - Sekarang</span>
-          </div>
-          <div class="timeline-sub">YMCA Hong Kong</div>
-          <ul>
-            <li>Memberikan pelatihan pengoperasian Microsoft Office dan keahlian dasar komputer dengan metode pembelajaran interaktif.</li>
-            <li>Menyusun modul pelatihan bilingual untuk meningkatkan pemahaman teknologi bagi para peserta pelatihan.</li>
-            <li>Anggota Pengurus Aktif Ikatan Alumni Universitas Terbuka (IKA UT) Cabang Hong Kong (Periode 2026 - 2031).</li>
-          </ul>
-        </div>
-      </div>
+    // Modal Helpers
+    function openCvModal() { document.getElementById("cvModal").classList.add("active"); }
+    function closeCvModal() { document.getElementById("cvModal").classList.remove("active"); }
+    function openQrModal() { document.getElementById("qrModal").classList.add("active"); }
+    function closeQrModal() { document.getElementById("qrModal").classList.remove("active"); }
 
-      <!-- Education -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card">
-          <div class="timeline-header">
-            <h3>S1 Administrasi Bisnis (Bachelor's Degree)</h3>
-            <span class="timeline-badge">2022 - 2026</span>
-          </div>
-          <div class="timeline-sub">Universitas Terbuka</div>
-          <p style="color: var(--slate); font-size: 0.95rem;">
-            Mempelajari manajemen operasional, administrasi proses bisnis, pengolahan data terstruktur, serta tata kelola organisasi.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+    // Menampilkan Notifikasi Toast
+    function showToast(message) {
+      var toast = document.getElementById("toastBox");
+      var desc = document.getElementById("toastDesc");
+      if (desc && message) desc.textContent = message;
+      toast.style.display = "flex";
+      setTimeout(function() {
+        toast.style.display = "none";
+      }, 4500);
+    }
 
-  <!-- CERTIFICATIONS -->
-  <section id="certifications">
-    <div class="section-header">
-      <h2>Sertifikasi & Pelatihan Resmi</h2>
-      <p>Standarisasi internasional di bidang keperawatan, keselamatan kerja, dan analisis data.</p>
-    </div>
+    // Optimistic UI Contact Form Handler
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      
+      var namaEl = document.getElementById("formNama");
+      var emailEl = document.getElementById("formEmail");
+      var waEl = document.getElementById("formWa");
+      var catEl = document.getElementById("formKategori");
+      var pesanEl = document.getElementById("formPesan");
 
-    <div class="cert-grid">
-      <div class="cert-item">
-        <i class="fa-solid fa-award"></i>
-        <div>
-          <h4>CNA - Cardiac Nursing Caregiver</h4>
-          <span>National Caregiver Certificate, Indonesia (2026)</span>
-        </div>
-      </div>
+      // Ekstraksi nilai primitif murni
+      var payload = {
+        nama: String(namaEl.value || "").trim(),
+        email: String(emailEl.value || "").trim(),
+        whatsapp: String(waEl.value || "").trim(),
+        kategori: String(catEl.value || "").trim(),
+        pesan: String(pesanEl.value || "").trim()
+      };
 
-      <div class="cert-item">
-        <i class="fa-solid fa-award"></i>
-        <div>
-          <h4>ACA Certified Caregiver</h4>
-          <span>American Caregiver Association, United States</span>
-        </div>
-      </div>
+      // 1. OPTIMISTIC UI: Tampilkan konfirmasi instan & reset formulir
+      showToast("Terima kasih " + payload.nama + ", pesan Anda sedang dicatat.");
+      document.getElementById("contactForm").reset();
 
-      <div class="cert-item">
-        <i class="fa-solid fa-award"></i>
-        <div>
-          <h4>City & Guilds & TQUK Level 2</h4>
-          <span>Caregiving Certification, United Kingdom</span>
-        </div>
-      </div>
+      // 2. Background Sync via google.script.run
+      if (typeof google !== "undefined" && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function(res) {
+            if (res && res.success) {
+              console.log("Recorded to Google Sheets with ID: " + res.id);
+            }
+          })
+          .withFailureHandler(function(err) {
+            console.error("Gagal sync ke spreadsheet: " + err);
+          })
+          .submitContactMessage(payload);
+      }
+    }
 
-      <div class="cert-item">
-        <i class="fa-solid fa-heart-pulse"></i>
-        <div>
-          <h4>ASHI First Aid, CPR & AED</h4>
-          <span>American Safety & Health Institute, USA</span>
-        </div>
-      </div>
+    // Render Data Card Secara Klasik (Tanpa nested backtick untuk hindari runtime error)
+    function renderCardHTML(item) {
+      var html = '<div class="glass-panel portfolio-card">';
+      html += '<div>';
+      
+      // Thumbnail jika ada
+      if (item.urlGambar) {
+        html += '<div class="card-thumb-wrap">';
+        html += '<img src="' + item.urlGambar + '" alt="' + item.judul + '" onerror="this.parentElement.style.display=\'none\';">';
+        html += '</div>';
+      }
 
-      <div class="cert-item">
-        <i class="fa-solid fa-chart-column"></i>
-        <div>
-          <h4>BSNP Data Analyst</h4>
-          <span>DITEKINDO Indonesia (2026)</span>
-        </div>
-      </div>
+      // Meta info
+      html += '<div class="card-meta">';
+      html += '<span class="card-subcat">' + (item.subkategori || 'GENERAL') + '</span>';
+      html += '<span class="card-year">' + (item.periode || '') + '</span>';
+      html += '</div>';
 
-      <div class="cert-item">
-        <i class="fa-solid fa-laptop-code"></i>
-        <div>
-          <h4>BSNP Microsoft Office</h4>
-          <span>PT. Esas Edukasi Indonesia (2025)</span>
-        </div>
-      </div>
+      html += '<h3 class="card-title">' + item.judul + '</h3>';
+      if (item.penerbit) {
+        html += '<div class="card-publisher">' + item.penerbit + '</div>';
+      }
+      html += '<p class="card-desc">' + item.deskripsi + '</p>';
+      html += '</div>';
 
-      <div class="cert-item">
-        <i class="fa-solid fa-shield-halved"></i>
-        <div>
-          <h4>ISO & K3 (SMK3 PP No. 50/2012)</h4>
-          <span>ISO 9001, ISO 14001, ISO 45001, QA & QC Awareness</span>
-        </div>
-      </div>
+      // Action Link jika ada
+      if (item.urlTautan) {
+        html += '<div class="card-action-bar">';
+        html += '<a href="' + item.urlTautan + '" target="_blank" rel="noopener noreferrer" class="btn-card-view">Buka Verifikasi / Tautan &rarr;</a>';
+        html += '</div>';
+      }
 
-      <div class="cert-item">
-        <i class="fa-solid fa-chalkboard-user"></i>
-        <div>
-          <h4>Certified Assistant Teacher</h4>
-          <span>YMCA of Hong Kong (2024 - 2025)</span>
-        </div>
-      </div>
+      html += '</div>';
+      return html;
+    }
 
-      <div class="cert-item">
-        <i class="fa-solid fa-truck-medical"></i>
-        <div>
-          <h4>Community Emergency Responder</h4>
-          <span>Fire Services Department Hong Kong (2025)</span>
-        </div>
-      </div>
-    </div>
-  </section>
+    // Render Timeline Experience
+    function renderTimelineHTML(item) {
+      var html = '<div class="timeline-item">';
+      html += '<div class="timeline-dot"></div>';
+      html += '<div class="glass-panel" style="padding: 20px;">';
+      html += '<div class="card-meta">';
+      html += '<span class="card-subcat">' + (item.subkategori || 'EXPERIENCE') + '</span>';
+      html += '<span class="card-year" style="color: var(--teal-primary); font-weight: 700;">' + item.periode + '</span>';
+      html += '</div>';
+      html += '<h3 class="card-title">' + item.judul + '</h3>';
+      html += '<div class="card-publisher">' + item.penerbit + '</div>';
+      html += '<p class="card-desc">' + item.deskripsi + '</p>';
+      if (item.urlTautan) {
+        html += '<div style="margin-top: 10px;">';
+        html += '<a href="' + item.urlTautan + '" target="_blank" rel="noopener noreferrer" class="btn-card-view" style="display:inline-block; padding: 6px 14px;">Buka Dokumentasi &rarr;</a>';
+        html += '</div>';
+      }
+      html += '</div></div>';
+      return html;
+    }
 
-  <!-- FOOTER -->
-  <footer>
-    <p style="margin-bottom: 0.5rem; font-weight: 600; color: white;">Sabariah, S.A.B &mdash; Healthcare Virtual Assistant & Caregiver</p>
-    <p style="font-size: 0.9rem;">Hong Kong | <a href="mailto:riahsaba123@gmail.com">riahsaba123@gmail.com</a> | <a href="http://www.linkedin.com/in/saba-riah" target="_blank">LinkedIn</a></p>
-  </footer>
+    // Lazy Loading & Server-Side Data Fetcher
+    function loadCategoryData(catName) {
+      if (portfolioCache[catName]) {
+        return; // Sudah tersimpan di memory browser
+      }
 
+      var targetContainer = null;
+      if (catName === "experience") {
+        targetContainer = document.getElementById("timeline-experience");
+      } else {
+        targetContainer = document.getElementById("grid-" + catName);
+      }
+
+      if (!targetContainer) return;
+
+      // Skeleton Placeholder
+      targetContainer.innerHTML = '<div class="skeleton-card"></div><div class="skeleton-card"></div><div class="skeleton-card"></div>';
+
+      if (typeof google !== "undefined" && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function(response) {
+            portfolioCache[catName] = response.items || [];
+            displayItems(catName, portfolioCache[catName]);
+          })
+          .withFailureHandler(function(err) {
+            targetContainer.innerHTML = '<p style="color: var(--danger);">Gagal memuat data: ' + err + '</p>';
+          })
+          .getPortfolioDataPaginated(catName, 1, 30);
+      }
+    }
+
+    function displayItems(catName, items) {
+      var targetContainer = (catName === "experience") 
+        ? document.getElementById("timeline-experience") 
+        : document.getElementById("grid-" + catName);
+
+      if (!targetContainer) return;
+
+      if (!items || items.length === 0) {
+        targetContainer.innerHTML = '<p style="color: var(--text-muted); padding: 20px;">Belum ada data pada kategori ini.</p>';
+        return;
+      }
+
+      var combinedHTML = "";
+      for (var i = 0; i < items.length; i++) {
+        if (catName === "experience") {
+          combinedHTML += renderTimelineHTML(items[i]);
+        } else {
+          combinedHTML += renderCardHTML(items[i]);
+        }
+      }
+      targetContainer.innerHTML = combinedHTML;
+    }
+
+    // Modal click out to close
+    window.onclick = function(e) {
+      if (e.target.classList.contains("modal-overlay")) {
+        e.target.classList.remove("active");
+      }
+    };
+  </script>
 </body>
 </html>
